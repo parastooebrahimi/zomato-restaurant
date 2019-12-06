@@ -1,0 +1,34 @@
+.App{
+  
+   margin-top: 30px;
+   margin-left:170px;
+   margin-right: 170px;
+   padding: 10px;
+  grid-template-areas: "header header header"
+  "sideBar  content content ";
+  display: grid;
+}
+
+.header{
+  background:white ;
+  grid-template-columns: 1fr 1fr;
+  font-size: 2em;
+  display: grid;
+  grid-template-columns:auto auto;
+  align-items: center;
+  justify-content: space-between;
+  padding:10px;
+  grid-area: header;
+  
+  
+}
+.sideBar{
+  background:#ced6e0;
+  grid-area: sideBar;
+
+}
+.content{
+  background:#f5f6fa;
+  grid-area: content;
+}
+
