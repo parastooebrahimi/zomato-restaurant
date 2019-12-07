@@ -1,0 +1,16 @@
+.container{
+    
+    display: grid;
+    grid-template-columns: auto auto;
+
+}
+.left{
+    display: grid;
+   
+
+}
+.right{
+    display: grid;
+    
+
+}

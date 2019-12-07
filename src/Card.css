@@ -13,9 +13,9 @@
 }
 .res-info{
     
-
-    align-items: center;
-    justify-content: center;
+    align-items: left;
+    justify-content: left;
+    margin-left: 20px;
    
 
 
@@ -24,7 +24,14 @@
 }
 .image-style{
    max-width: 405px;
-   height: auto;
+   height: 250px;
+   border-radius: 10px;
 
     
+}
+.resName{
+    line-height: 1px;
+}
+.adressStyle{
+    color: #727678;
 }

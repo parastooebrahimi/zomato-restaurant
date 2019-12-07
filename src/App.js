@@ -2,11 +2,13 @@ import React from 'react';
 import axios from 'axios';
 import './App.css';
 import Card from './Card.js';
-import Sidebar from './Sidebar.js'
+import Sidebar from './Sidebar.js';
+import HeaderLeft from './HeaderLeft.js'
 
 class App extends React.Component {
   state={
-    resturants:[]
+    resturants:[],
+    selectedRestaurantId: null,
   }
 
   componentDidMount(){
@@ -17,15 +19,24 @@ class App extends React.Component {
     )
   }
 
+  selectRestaurant(id){
+    this.setState({selectedRestaurantId: id})
+
+  }
+
   render(){
     
-    let resturantMenu= this.state.resturants.map((item,index)=> <Sidebar key={index} name={item.restaurant.name} 
-      />);
+    let resturantMenu= this.state.resturants.map((item,index)=> 
+    <Sidebar key={index} name={item.restaurant.name} id={item.restaurant.id}
+     clicked={()=> {this.selectRestaurant(item.restaurant.id)}}/> );
     return (
      
       <div className="App">
         <div className="header">
-             <div className="header-left">category
+
+             <div className="header-left">
+               <HeaderLeft/>
+
   
              </div>
   
@@ -36,7 +47,7 @@ class App extends React.Component {
         </div>
   
   
-        <div className="sideBar">
+        <div className="sideBar cursor">
           {resturantMenu}
           
   
@@ -44,7 +55,7 @@ class App extends React.Component {
   
         <div className="content">
 
-        <Card/>
+        <Card id={this.state.selectedRestaurantId}/>
           
         
         </div>

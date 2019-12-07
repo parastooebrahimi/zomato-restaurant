@@ -11,7 +11,6 @@
 
 .header{
   background:white ;
-  grid-template-columns: 1fr 1fr ;
   font-size: 2em;
   display: grid;
   grid-template-columns:auto auto;
@@ -19,12 +18,15 @@
   justify-content: space-between;
   padding:10px;
   grid-area: header;
+  border: solid 2px;
+  border-radius: 20px;
+  border-color: white ;
   
   
 }
 .sideBar{
   
-  background:#ced6e0;
+  background:#E5E5E5;
   grid-area: sideBar;
   display: grid;
   grid-template-columns: auto;
@@ -32,7 +34,13 @@
 .content{
   display: grid;
   grid-template-columns: auto ;
-  background:#f5f6fa;
+  background:#F1F1F1;
   grid-area: content;
+}
+.header-left{
+
+}
+.cursor{
+  cursor: pointer;
 }
 
