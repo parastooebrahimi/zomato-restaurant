@@ -1,8 +1,8 @@
 .App{
   
    margin-top: 30px;
-   margin-left:170px;
-   margin-right: 170px;
+   margin-left:70px;
+   margin-right: 70px;
    padding: 10px;
   grid-template-areas: "header header header"
   "sideBar  content content ";
@@ -11,7 +11,7 @@
 
 .header{
   background:white ;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr 1fr ;
   font-size: 2em;
   display: grid;
   grid-template-columns:auto auto;
@@ -23,11 +23,15 @@
   
 }
 .sideBar{
+  
   background:#ced6e0;
   grid-area: sideBar;
-
+  display: grid;
+  grid-template-columns: auto;
 }
 .content{
+  display: grid;
+  grid-template-columns: auto ;
   background:#f5f6fa;
   grid-area: content;
 }
