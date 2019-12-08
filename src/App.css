@@ -30,6 +30,7 @@
   grid-area: sideBar;
   display: grid;
   grid-template-columns: auto;
+  
 }
 .content{
   display: grid;

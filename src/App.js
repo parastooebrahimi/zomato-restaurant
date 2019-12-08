@@ -32,15 +32,18 @@ class App extends React.Component {
     return (
      
       <div className="App">
+
         <div className="header">
 
              <div className="header-left">
+
+
                <HeaderLeft/>
 
   
              </div>
   
-             <div className="header-right">rating
+             <div className="header-right">
   
              </div>
   
