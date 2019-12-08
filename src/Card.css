@@ -26,6 +26,8 @@
    max-width: 405px;
    height: 250px;
    border-radius: 10px;
+   display: flex;
+   
 
     
 }

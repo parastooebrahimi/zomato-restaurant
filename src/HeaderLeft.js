@@ -33,7 +33,7 @@ class HeaderLeft extends React.Component {
                     <div className="left-down left">
                     {this.state.category.map((item) =>
                     
-                    <label><input type="checkbox"/>{item.categories.name}</label> 
+                    <label><input type="checkbox" style={{marginRight:'5px'}}/>{item.categories.name}</label> 
                    
                 
             )}
