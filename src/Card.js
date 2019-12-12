@@ -42,19 +42,19 @@ class Card extends React.Component {
                         </p>
                         <br/>
                         <p style={{lineHeight:'8px'}}>
-                        <label style={{fontSize:'11px', color:'#484848', fontWeight:'bold'}}><strong>CUISINES</strong></label>
+                        <label className="lableStyle"><strong>CUISINES</strong></label>
                         <br/>
-                        <h12 style={{color:'#4E5456'}}>{this.state.loadedPost.cuisines}</h12>
+                        <h12 className="lableStyle">{this.state.loadedPost.cuisines}</h12>
                         </p>
     
                         <p style={{lineHeight:'8px'}}>
-                        <label style={{fontSize:'11px', color:'#484848', fontWeight:'bold'}}><strong>PHONE NUMBER</strong></label>
+                        <label className="lableStyle"><strong>PHONE NUMBER</strong></label>
                         <br/>
-                        <h12 style={{color:'#4E5456'}}>{this.state.loadedPost.phone_numbers}</h12>
+                        <h12 className="lableStyle">{this.state.loadedPost.phone_numbers}</h12>
                         </p>
     
                         <p style={{lineHeight:'8px'}}>
-                        <label style={{fontSize:'11px', color:'#484848', fontWeight:'bold'}}><strong>OPENING HOURS</strong></label>
+                        <label className="lableStyle"><strong>OPENING HOURS</strong></label>
                         <br/>
                         <h12 style={{color:'#4E5456'}}>{this.state.loadedPost.timings}</h12>
                         </p>

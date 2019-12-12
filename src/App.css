@@ -29,7 +29,7 @@
   grid-area: sideBar;
   display: grid;
   grid-template-columns: auto;
-  height:520px;
+  max-height:530px;
   overflow-y: scroll;
   
 }
@@ -45,4 +45,5 @@
 .cursor{
   cursor: pointer;
 }
+
 
