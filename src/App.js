@@ -10,6 +10,7 @@ import InfiniteScroll from 'react-infinite-scroller';
 class App extends React.Component {
   state = {
     resturants: [],
+    cuisineResturants: [],
     SelectedCuisine:[],
     cuisine: [],
     selectedRestaurantId: null,
@@ -41,13 +42,14 @@ class App extends React.Component {
     axios.get(`https://developers.zomato.com/api/v2.1/search?entity_id=297&entity_type=city&start=${this.state.nextPage}&cuisines=${this.state.SelectedCuisine}&q=Adelaide&apikey=07f3b7cdf9aab5e68f4dfbb516560b4d`).then(
       response => {
        
-        this.setState({
-          resturants: response.data.restaurants,
-        hasMore: response.data.results_found == response.data.results_start ? false : true,
-         nextPage: response.data.results_start<20 ? null : response.data.results_start + 20 ,
-
+        this.setState(prevState =>({
+         cuisineResturants:[...prevState.cuisineResturants ,...response.data.restaurants],
+        // cuisineResturants: response.data.restaurants,
+          hasMore: response.data.results_found == response.data.results_start ? false : true,
+          nextPage: response.data.results_start+20
+         
           
-        })
+        }))
         
       }
       
@@ -60,12 +62,13 @@ class App extends React.Component {
 
     axios.get(`https://developers.zomato.com/api/v2.1/search?entity_id=297&entity_type=city&start=${this.state.nextPage}&cuisines=${this.state.SelectedCuisine}&q=Adelaide&apikey=07f3b7cdf9aab5e68f4dfbb516560b4d`).then(
       response => {
+        
        
         this.setState(prevState =>({
           resturants:[...prevState.resturants ,...response.data.restaurants],
           //resturants: response.data.restaurants,
           hasMore: response.data.results_found == response.data.results_start ? false : true,
-          nextPage: response.data.results_start + 20,
+          nextPage: response.data.results_start>0 && response.data.results_start % 0 ==0 ? response.data.results_start+20 : response.data.results_start + 1,
           
          
           
@@ -114,9 +117,23 @@ class App extends React.Component {
 
 
         <div>
-          <InfiniteScroll className="sideBar cursor"
+          { this.state.SelectedCuisine.length>0 ?
+            <InfiniteScroll className="sideBar cursor"
             pageStart={0}
-            loadMore={this.state.SelectedCuisine.length>0 ? this.handleCuisineSearch.bind(this) : this.handleLoadMore.bind(this)}
+            loadMore={this.handleCuisineSearch.bind(this) }
+            hasMore={this.state.hasMore}
+            loader={<div className="loader" key={0}>Loading ...</div>}
+          >
+             {this.state.cuisineResturants.map((item, index) =>
+                 <Sidebar key={index} name={item.restaurant.name} id={item.restaurant.id}
+                 clicked={() => { this.selectRestaurant(item.restaurant.id) }} />)}
+          
+          </InfiniteScroll>
+            
+          :
+            <InfiniteScroll className="sideBar cursor"
+            pageStart={0}
+            loadMore={this.handleLoadMore.bind(this)}
             hasMore={this.state.hasMore}
             loader={<div className="loader" key={0}>Loading ...</div>}
           >
@@ -125,6 +142,10 @@ class App extends React.Component {
                  clicked={() => { this.selectRestaurant(item.restaurant.id) }} />)}
           
           </InfiniteScroll>
+          }
+
+          
+          
          
 
 
