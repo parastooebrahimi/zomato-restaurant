@@ -11,10 +11,12 @@
 
 .header{
   background:white ;
-  display: grid;
-  grid-template-columns:auto auto;
-  align-items: center;
-  justify-content: space-between;
+  display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: flex-start;
+	align-items: flex-start;
+	align-content: flex-start;
   padding:10px;
   grid-area: header;
   border: solid 2px;
@@ -45,5 +47,16 @@
 .cursor{
   cursor: pointer;
 }
-
+.header-right{
+  display: flex;
+	flex-direction: column;
+	flex-wrap: wrap;
+	justify-content: space-around;
+	align-items: flex-start;
+	align-content: space-around;
+  height: 150px;
+  width: 500px;
+  margin-top: 35px;
+ 
+}
 

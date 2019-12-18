@@ -9,7 +9,7 @@ class HeaderLeft extends React.Component {
         axios.get(`https://developers.zomato.com/api/v2.1/categories?apikey=07f3b7cdf9aab5e68f4dfbb516560b4d`).then(
             response => {
                 this.setState({
-                    category: response.data.categories
+                    category: response.data.categories.splice(0,4)
                 })
 
             }
@@ -21,16 +21,13 @@ class HeaderLeft extends React.Component {
         return (
             <div className="container">
                
-                <div className="left-container">
-               
+                <div>
                     
-
-                    
-                    <div className="left-top">
+                    <div >
                     <label style={{ fontSize: '15px', color: '#484848', fontWeight: 'bold' }}>CATEGORY</label> 
                     
                     </div>
-                    <div className="left-down left">
+                    <div className="left">
                     {this.state.category.map((item) =>
                     
                     <label><input type="checkbox" style={{marginRight:'5px'}}/>{item.categories.name}</label> 

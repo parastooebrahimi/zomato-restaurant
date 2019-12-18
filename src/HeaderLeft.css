@@ -8,16 +8,12 @@
 
 
 }
-.left-container{
-    display: 'grid';
-    grid-template-columns: auto auto;
 
-}
 .left{
 
     
-    width: 700px;
-     height: 150px;
+    width: 150px;
+     height: 130px;
      display: flex;
      flex-direction: column;
      flex-wrap: wrap;
@@ -25,10 +21,7 @@
      align-items: stretch;
      align-content: space-between;
      font-size: 15px;
-   
-   
-
-   
+        
 }
 .right{
     display: grid;
