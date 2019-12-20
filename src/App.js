@@ -80,10 +80,21 @@ class App extends React.Component {
     )
   }
   SelectedCuisineId(id){
+    
     this.setState(prevState =>({
       SelectedCuisine:[...prevState.SelectedCuisine ,id],
 
     }))
+
+  }
+  UnSelectedCuisineId(id){
+    let unSelected = this.state.SelectedCuisine.filter(item => item!== id)
+    this.setState({
+      SelectedCuisine:[
+        ...unSelected
+      ]
+    })
+    
 
   }
 
@@ -106,8 +117,10 @@ class App extends React.Component {
           <label style={{ fontSize: '15px', color: '#484848', fontWeight: 'bold' }}>CUISINE</label> 
           </div>
           {this.state.cuisine.map((item, index) =>
-                 <Cuisine key={index} name={item.cuisine.cuisine_name} id={item.cuisine.cuisine_id} 
-                  clicked={() => { this.SelectedCuisineId(item.cuisine.cuisine_id) }}
+                 <Cuisine key={index} name={item.cuisine.cuisine_name} id={item.cuisine.cuisine_id}
+                
+                  clicked={this.SelectedCuisineId.bind(this)}
+                  unclicked= {this.UnSelectedCuisineId.bind(this)}
                   />)}
                   
            
