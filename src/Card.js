@@ -59,7 +59,6 @@ class Card extends React.Component {
                         <h12 style={{color:'#4E5456'}}>{this.state.loadedPost.timings}</h12>
                         </p>
                         
-                        
                     </div>
     
                 </div>
